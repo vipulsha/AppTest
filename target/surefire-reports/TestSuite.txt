@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 3, Time elapsed: 0.813 sec <<< FAILURE! - in TestSuite
+setUp(com.amazon.test.TC_001_AmazonProdCheckoutTest)  Time elapsed: 0.548 sec  <<< FAILURE!
+java.lang.NullPointerException
+
