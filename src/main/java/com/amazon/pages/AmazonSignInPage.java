@@ -1,13 +1,24 @@
 package com.amazon.pages;
 
-import org.openqa.selenium.WebDriver;
-
 import com.common.utils.Element;
 import com.common.utils.LocatorType;
 import com.common.utils.ParentPage;
+import org.openqa.selenium.WebDriver;
 
 public class AmazonSignInPage extends ParentPage {
 	WebDriver driver = null;
+
+	/*@FindBy(id = "ap_email")
+	WebElement emailIdTextbox;
+
+	@FindBy(xpath = "//input[@id='continue']")
+			WebElement continueButton;
+
+	@FindBy(id = "ap_password")
+			WebElement passwordTextbox;
+
+	@FindBy(id = "signInSubmit")
+			WebElement signInButton;*/
 	Element emailIdTextbox = new Element(LocatorType.ID, "ap_email", "Email Id Textbox");
 	Element continueButton = new Element(LocatorType.XPATH, "//input[@id='continue']", "Continue Button");
 	Element passwordTextbox = new Element(LocatorType.ID, "ap_password", "Password Textbox");
@@ -16,6 +27,7 @@ public class AmazonSignInPage extends ParentPage {
 	public AmazonSignInPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+//		PageFactory.initElements(driver, this);
 	}
 	
 	public void enterEmailId(String emailId) {

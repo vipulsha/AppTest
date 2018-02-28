@@ -17,6 +17,9 @@ public class UserHomePage extends ParentPage {
 	public UserHomePage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		if (!driver.getCurrentUrl().contains("/gp/yourstore/home")){
+			throw new IllegalArgumentException("Not on Amazon Userhome page... Current page is: " + driver.getCurrentUrl());
+		}
 	}
 
 	public String getLoggedInUsername() {

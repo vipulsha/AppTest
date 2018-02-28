@@ -17,7 +17,8 @@ public class DataReader {
 		if (configProp == null) {
 			configProp = new Properties();
 			try {
-				configProp.load(new FileInputStream(new File(System.getProperty("user.dir")+"\\src\\test\\resources\\Config\\Config.properties")));
+				configProp.load(new FileInputStream(new File(System.getProperty("user.dir")
+                        +"/src/test/resources/Config/Config.properties")));
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
 			}
@@ -32,7 +33,8 @@ public class DataReader {
 	public static Properties getTestDataPropertiesObject(String fileName) {
 		Properties properties = new Properties();
 		try {
-			properties.load(new FileInputStream(new File(System.getProperty("user.dir")+"\\src\\test\\resources\\DataRepository\\"+fileName+".properties")));
+			properties.load(new FileInputStream(new File(System.getProperty("user.dir")
+					+"/src/test/resources/DataRepository/"+fileName+".properties")));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

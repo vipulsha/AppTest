@@ -1,7 +1,7 @@
 package com.common.utils;
 
-import java.util.List;
-
+import atu.testng.reports.ATUReports;
+import atu.testng.reports.logging.LogAs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,12 +10,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import atu.testng.reports.ATUReports;
-import atu.testng.reports.logging.LogAs;
+import java.util.List;
 
 public class ParentPage {
 
-	WebDriver driver;
+	protected WebDriver driver;
 	public static final int WAIT_FOR_ELEMENT_SECS = Integer.parseInt(DataReader.getConfigData("waitForElementTimeInSec"));
 	protected WebDriverWait wait = null;
 
