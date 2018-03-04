@@ -17,9 +17,9 @@ public class UserHomePage extends ParentPage {
 	public UserHomePage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
-		if (!driver.getCurrentUrl().contains("/gp/yourstore/home")){
+		/*if (!driver.contains("/gp/yourstore/home")){
 			throw new IllegalArgumentException("Not on Amazon Userhome page... Current page is: " + driver.getCurrentUrl());
-		}
+		}*/
 	}
 
 	public String getLoggedInUsername() {
@@ -36,7 +36,7 @@ public class UserHomePage extends ParentPage {
 
 	public void clearCart() {
 		click(cartItemCount);
-		new CartPage(driver).deleteAllItems();
+		new ShoppingCartPage(driver).deleteAllItems();
 	}
 	
 	public void enterSearchCriteria(String searchCriteria) {
@@ -48,9 +48,9 @@ public class UserHomePage extends ParentPage {
 		return new SearchResultPage(driver);
 	}
 	
-	public AmazonSignInPage logOut() {
+	public SignInPage logOut() {
 		hoverOnElement(loggedInUserName);
 		click(signOutLink);
-		return new AmazonSignInPage(driver);
+		return new SignInPage(driver);
 	}
 }

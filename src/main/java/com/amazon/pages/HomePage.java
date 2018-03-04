@@ -17,9 +17,9 @@ public class HomePage extends ParentPage {
 		this.driver = driver;
 	}
 	
-	public AmazonSignInPage clickOnSignInOption() {
+	public SignInPage clickOnSignInOption() {
 		click(signInOption);
-		return new AmazonSignInPage(driver);
+		return new SignInPage(driver);
 	}
 
 	public SignUpPage gotoSignUpPage(){

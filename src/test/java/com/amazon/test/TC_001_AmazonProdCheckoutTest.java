@@ -1,23 +1,16 @@
 package com.amazon.test;
 
-import java.util.List;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.Test;
 import atu.testng.reports.ATUReports;
 import atu.testng.reports.logging.LogAs;
 import atu.testng.selenium.reports.CaptureScreen;
 import atu.testng.selenium.reports.CaptureScreen.ScreenshotOf;
-import com.amazon.pages.CartDetailsPage;
-import com.amazon.pages.HomePage;
-import com.amazon.pages.PaymentMethodPage;
-import com.amazon.pages.ProductDetailsPage;
-import com.amazon.pages.SearchResultPage;
-import com.amazon.pages.ShippingAddressPage;
-import com.amazon.pages.ShippingOptionsPage;
-import com.amazon.pages.AmazonSignInPage;
-import com.amazon.pages.UserHomePage;
+import com.amazon.pages.*;
 import com.common.utils.Assertion;
 import com.common.utils.ParentTest;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class TC_001_AmazonProdCheckoutTest extends ParentTest {
 
@@ -25,7 +18,7 @@ public class TC_001_AmazonProdCheckoutTest extends ParentTest {
 	public void amazonTest() {
 		try {
 			HomePage homePage = new HomePage(driver);
-			AmazonSignInPage signInPage = homePage.clickOnSignInOption();
+			SignInPage signInPage = homePage.clickOnSignInOption();
 			signInPage.enterEmailId(getData("emailId"));
 			signInPage.clickContinueButton();
 			signInPage.enterPassword(getData("password"));

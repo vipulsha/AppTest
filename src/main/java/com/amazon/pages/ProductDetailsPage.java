@@ -20,6 +20,14 @@ public class ProductDetailsPage extends ParentPage {
 	Element totalPriceOnCart = new Element(LocatorType.ID, "attach-accessory-cart-subtotal", "TotalPriceOnCart");
 	Element proceedToCheckoutButton = new Element(LocatorType.ID, "attach-accessory-proceed-to-checkout-text", "ProceedToCheckoutButton");
 	Element noThanksButton = new Element(LocatorType.ID, "siNoCoverage-announce", "NoThanksButton");
+
+	// Added by Vijay
+	Element bookPrice = new Element(LocatorType.XPATH, ".//*[@id='a-autoid-3-announce']/span[2]", "Price");
+    Element bookAuthorName = new Element(LocatorType.XPATH, ".//*[@id='byline']/span[1]/span[1]/a[1]", "Author");
+    Element bookBinding = new Element(LocatorType.XPATH, ".//*[@id='title']/span[2]", "Editor");
+    Element bookPublishDate = new Element(LocatorType.XPATH, ".//*[@id='title']/span[2]", "PublishDate");
+    Element cartButton = new Element(LocatorType.ID, "hlb-view-cart-announce", "PublishDate");
+
 	
 	public ProductDetailsPage(WebDriver driver) {
 		super(driver);
@@ -43,6 +51,10 @@ public class ProductDetailsPage extends ParentPage {
 	public String getPrice() {
 		return getText(price);
 	}
+
+	public String getBookPrice(){
+	    return getText(bookPrice);
+    }
 	
 	public void selectQuantity(String value) {
 		selectDropdown(selectQuantity, SelectBy.VALUE, value);
@@ -58,12 +70,12 @@ public class ProductDetailsPage extends ParentPage {
 		else
 			return false;
 	}
-	
-	public String getNoOfItemsAddedToCart() {
-		String s = getText(noOfItemsAddedToCart).trim();
-		s = s.split("(")[1];
-		return s.split(" ")[0];
-	}
+
+    public String getNoOfItemsAddedToCart() {
+        String s = getText(noOfItemsAddedToCart).trim();
+        s = s.split("\\(")[1];
+        return s.split(" ")[0];
+    }
 	
 	public Double getTotalPriceOnCart() {
 		return Double.parseDouble(getText(totalPriceOnCart));
@@ -82,4 +94,22 @@ public class ProductDetailsPage extends ParentPage {
 		}
 		return new CartDetailsPage(driver);
 	}
+
+    public String getAuthorName() {
+
+        return getText(bookAuthorName);
+    }
+
+    public String getBookBindingName(){
+	    return getText(bookBinding);
+    }
+
+    public String getPublishDate(){
+        return getText(bookPublishDate);
+    }
+
+    public ShoppingCartPage gotoCart(){
+	    click(cartButton);
+	    return new ShoppingCartPage(driver);
+    }
 }

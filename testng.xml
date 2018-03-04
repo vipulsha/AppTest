@@ -9,7 +9,7 @@
 	<test name="Test">
 		<classes>
 			<class name="com.amazon.test.TC_001_AmazonProdCheckoutTest" />
-			<class name="com.gmail.test.TC_002_GmailVacationResponderTest" />
+			<class name="com.amazon.test.CartTest" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

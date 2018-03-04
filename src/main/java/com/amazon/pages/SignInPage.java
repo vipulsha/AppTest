@@ -5,7 +5,7 @@ import com.common.utils.LocatorType;
 import com.common.utils.ParentPage;
 import org.openqa.selenium.WebDriver;
 
-public class AmazonSignInPage extends ParentPage {
+public class SignInPage extends ParentPage {
 	WebDriver driver = null;
 
 	/*@FindBy(id = "ap_email")
@@ -24,7 +24,7 @@ public class AmazonSignInPage extends ParentPage {
 	Element passwordTextbox = new Element(LocatorType.ID, "ap_password", "Password Textbox");
 	Element signInButton = new Element(LocatorType.ID, "signInSubmit", "SignIn Button");
 	
-	public AmazonSignInPage(WebDriver driver) {
+	public SignInPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
 //		PageFactory.initElements(driver, this);
@@ -42,6 +42,13 @@ public class AmazonSignInPage extends ParentPage {
 		click(continueButton);
 	}
 	
+	public UserHomePage signIn(String emailId, String password){
+            enterText(emailIdTextbox, emailId);
+            click(continueButton);
+            enterText(passwordTextbox, password);
+            return clickSignInButton();
+    }
+
 	public UserHomePage clickSignInButton() {
 		click(signInButton);
 		return new UserHomePage(driver);
