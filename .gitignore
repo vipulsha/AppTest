@@ -1,2 +1,10 @@
 *.class
 *.classpath
+*.html
+*.xml
+/target/
+*.css
+*.js
+*.jpg
+*.png
+Settings.properties
